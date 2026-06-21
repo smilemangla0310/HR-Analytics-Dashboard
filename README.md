@@ -2,14 +2,12 @@
 
 # Presence Insights | HR Attendance Analytics Dashboard
 
-**A Power BI dashboard that tracks employee presence, work-from-home patterns, and sick leave trends across multiple months — built for data-driven HR decision-making.**
+**A Power BI dashboard that analyzes employee presence, work-from-home patterns, and sick leave trends to support data-driven HR decisions.**
 
 [![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)](https://powerbi.microsoft.com/)
 [![Excel](https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white)](https://www.microsoft.com/excel)
-[![DAX](https://img.shields.io/badge/DAX-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)](#dax-measures)
+[![DAX](https://img.shields.io/badge/DAX-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)](dax-measures.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
-
-[View Live Dashboard](PASTE_LIVE_DASHBOARD_LINK_HERE) · [Project Website](PASTE_GITHUB_PAGES_LINK_HERE) · [DAX Measures](dax-measures.md)
 
 </div>
 
@@ -17,171 +15,148 @@
 
 ## 📸 Dashboard Preview
 
-<!-- Replace with your own screenshot if needed -->
-![Dashboard Preview](assets/dashboard-main.png)
+> *Replace the placeholder below with your own screenshot. Save your screenshot as `images/dashboard-preview.png`.*
+
+![Dashboard Preview](images/dashboard-preview.png)
 
 ---
 
-## 📋 Overview
+## 📋 Project Summary
 
-This project delivers an interactive HR attendance analytics dashboard built in **Power BI**. It consolidates employee attendance data across **April 2022, May 2022, and June 2022** to provide actionable insights into presence rates, work-from-home adoption, and sick leave patterns.
+HR teams often track employee attendance in scattered Excel sheets — one sheet per month, one column per day. This makes it difficult to spot absenteeism patterns, measure hybrid-work adoption, or report workforce availability to leadership.
 
-The dashboard enables HR teams and managers to monitor workforce availability at both the organizational and individual employee level — helping identify trends, flag anomalies, and support data-backed policy decisions.
-
----
-
-## 🎯 Business Problem
-
-HR teams often rely on manual spreadsheets to track attendance, making it difficult to:
-
-- Identify employees with low presence or high absenteeism
-- Understand how WFH adoption varies across the week
-- Spot seasonal or day-of-week patterns in sick leave
-- Get a quick organizational health check on workforce availability
-
-This dashboard solves these challenges by transforming raw attendance logs into a single, interactive Power BI report with real-time filtering and drill-down capabilities.
+This project solves that problem by building an **interactive Power BI dashboard** that consolidates three months of raw attendance data (April–June 2022) into a single, filterable report with clear KPIs and visual trends.
 
 ---
 
-## 📊 Dashboard Snapshot
+## 🎯 Business Objective
 
-| Component | Description |
-|---|---|
-| **KPI Cards** | Presence % (91.55%), WFH % (11.15%), SL % (1.08%) |
-| **Total Working Days Gauge** | Shows 4,439 total working days tracked |
-| **Trend Charts** | Presence %, WFH %, and SL % plotted by date (Apr–Jun 2022) |
-| **Day-of-Week Tables** | Presence % breakdown for each weekday |
-| **Employee Matrix** | Name-level view with Presence %, WFH %, and SL % columns |
-| **Detail Table** | Individual attendance records with Name, Value (P/WFH/SL/LWP), and Date |
-| **Month Slicers** | Filter by April 22, May 22, or June 22 |
-
----
-
-## 📈 KPIs Tracked
-
-| KPI | Value | Description |
-|---|---|---|
-| **Presence %** | 91.55% | Percentage of days employees were present in office |
-| **WFH %** | 11.15% | Percentage of days employees worked from home |
-| **SL %** | 1.08% | Percentage of days taken as sick leave |
-| **Total Working Days** | 4,439 | Aggregate working days across all employees |
-
----
-
-## 📁 Dataset
-
-- **Source**: Employee attendance records in Excel format
-- **Period**: April 2022 – June 2022
-- **Structure**: Separate monthly sheets with daily attendance codes per employee
-- **Attendance Codes**: P (Present), WFH (Work From Home), SL (Sick Leave), LWP (Leave Without Pay), and others
-- **Rows**: Employee-level daily records
+- Provide a **single-view attendance report** for HR managers and leadership
+- Track **office presence, WFH usage, and sick leave** at both the organizational and individual level
+- Identify **weekday patterns and monthly trends** to support policy and facility planning
+- Enable **employee-level drill-down** for performance reviews and follow-up conversations
 
 ---
 
 ## 🛠️ Tools & Technologies
 
-| Tool | Purpose |
+| Tool | Role |
 |---|---|
-| **Power BI Desktop** | Dashboard design, visualization, and publishing |
-| **Power Query** | Data cleaning, transformation, and unpivoting |
-| **DAX** | Calculated measures and columns |
-| **Microsoft Excel** | Source data format |
-| **GitHub Pages** | Live project website |
+| **Power BI Desktop** | Dashboard design and interactive reporting |
+| **Power Query** | Data cleaning, transformation, and merging |
+| **DAX** | Calculated measures for KPIs and percentages |
+| **Microsoft Excel** | Source data (monthly attendance sheets) |
 
 ---
 
-## 🔄 Power Query Transformation
+## 🔄 Project Workflow
 
-1. **Imported** monthly attendance sheets from Excel
-2. **Promoted headers** and removed metadata rows
-3. **Unpivoted** date columns to convert wide-format data into a normalized table (Employee, Date, Value)
-4. **Cleaned** column types — set dates, trimmed text values
-5. **Appended** April, May, and June sheets into a single consolidated table
-6. **Added custom columns** for Month and Day of Week
+```
+Excel Data (3 monthly sheets)
+        ↓
+Power Query — clean, unpivot, merge into one table
+        ↓
+DAX Measures — Presence %, WFH %, SL %, Total Working Days
+        ↓
+Power BI Dashboard — KPI cards, trend charts, slicers, employee matrix
+```
+
+1. **Data Collection** — Raw attendance data in Excel with separate sheets for April, May, and June 2022
+2. **Data Transformation** — Used Power Query to unpivot date columns, normalize attendance codes, clean data types, and merge all months into one table
+3. **Measure Creation** — Built DAX measures for core counts (Present Days, WFH Count, SL Count) and derived percentages using `DIVIDE()` for safe division
+4. **Dashboard Design** — Created an interactive single-page report with KPI cards, trend lines, day-of-week tables, employee breakdown matrix, and month slicers
+
+---
+
+## 📊 Dashboard Features
+
+| Feature | What It Shows |
+|---|---|
+| **KPI Cards** | Presence % · WFH % · SL % at a glance |
+| **Total Working Days Gauge** | 4,439 working days tracked across all employees |
+| **Month Slicers** | Filter by April 22, May 22, or June 22 |
+| **Trend Charts** | Presence %, WFH %, and SL % plotted by date |
+| **Day-of-Week Table** | Attendance % for each weekday (Mon–Fri) |
+| **Employee Matrix** | Individual Presence %, WFH %, and SL % per employee |
+| **Detail Table** | Raw attendance records — Name, Status Code, Date |
+
+---
+
+## 📈 KPI Summary
+
+| KPI | Value | What It Means |
+|:---|:---:|:---|
+| **Presence %** | 91.55% | Employees were in-office on ~92 out of every 100 working days |
+| **WFH %** | 11.15% | About 1 in 9 working days were spent working from home |
+| **SL %** | 1.08% | Sick leave was minimal — roughly 1 day per 100 working days |
+| **Total Working Days** | 4,439 | Aggregate working days tracked (excludes weekends and holidays) |
+
+---
+
+## 💡 Key Business Insights
+
+1. **Strong office attendance at 91.55%** — The workforce maintains a healthy in-office presence, suggesting that current attendance policies are effective and office infrastructure is being well-utilized.
+
+2. **WFH at 11.15% reflects a controlled hybrid model** — Remote work is available but not the default. This rate is consistent across the three months, indicating a stable and managed hybrid arrangement rather than ad-hoc remote usage.
+
+3. **Sick leave at 1.08% is well below industry benchmarks** — Unplanned health absences are minimal, which points to generally good employee well-being. Any sudden spikes in SL % by month or individual would be worth investigating.
+
+4. **Friday shows the lowest office presence (90.08%)** — Compared to Tuesday (92.69%), Fridays see a noticeable attendance dip. HR can use this pattern to schedule important in-person activities early in the week and plan lighter facility usage on Fridays.
+
+5. **Employee-level analysis reveals outliers** — While most employees maintain 90%+ presence, a few individuals show high WFH or SL percentages. This data supports targeted, evidence-based conversations during reviews rather than assumptions.
+
+6. **Month-over-month trends are stable** — Attendance metrics remained largely consistent from April to June, with no significant disruptions. This stability makes the Q2 data a reliable baseline for future comparisons.
 
 ---
 
 ## 📐 DAX Measures
 
-Key calculated measures used in the dashboard:
+Core measures used in the dashboard:
 
-| Measure | Formula Summary |
+| Measure | Purpose |
 |---|---|
-| Total Working Days | Count of distinct dates in the dataset |
-| Present Days | Count of rows where Value = "P" |
-| Presence % | Present Days ÷ Total Working Days |
-| WFH Count | Count of rows where Value = "WFH" |
-| WFH % | WFH Count ÷ Total Working Days |
-| SL Count | Count of rows where Value = "SL" |
-| SL % | SL Count ÷ Total Working Days |
+| `Total Working Days` | Count of active days (excludes weekends and holidays) |
+| `Present Days` | Days where attendance = "P" |
+| `Presence %` | Present Days ÷ Total Working Days |
+| `WFH Count` | Days where attendance = "WFH" |
+| `WFH %` | WFH Count ÷ Total Working Days |
+| `SL Count` | Days where attendance = "SL" |
+| `SL %` | SL Count ÷ Total Working Days |
 
 > 📄 Full DAX formulas with explanations → [dax-measures.md](dax-measures.md)
-
----
-
-## ✨ Dashboard Features
-
-- **Month Slicer Panel** — Filter the entire dashboard by April 22, May 22, or June 22
-- **Trend Analysis** — Line/area charts showing Presence %, WFH %, and SL % over time
-- **Day-of-Week Breakdown** — See which weekdays have highest/lowest attendance
-- **Employee-Level Matrix** — Compare individual employee metrics side-by-side
-- **Detail Drill-Down Table** — View raw attendance records per employee per date
-- **Total Working Days Gauge** — Visual indicator of data completeness
-- **KPI Cards** — At-a-glance metrics for the three key percentages
-
----
-
-## 💡 Key Insights
-
-1. **Overall presence is strong at 91.55%**, indicating healthy workforce attendance
-2. **WFH usage at 11.15%** suggests a moderate hybrid work adoption pattern
-3. **Sick leave is minimal at 1.08%**, well within healthy organizational benchmarks
-4. **Monday and Friday** show slightly different attendance patterns compared to mid-week
-5. **Employee-level data** reveals that most employees maintain >90% presence, with a few outliers showing higher WFH or SL rates
-6. **Trend charts** show attendance remained relatively stable across the three-month period
-
----
-
-## 🔗 Live Dashboard
-
-> 🚀 **[View the Live Power BI Dashboard →](PASTE_LIVE_DASHBOARD_LINK_HERE)**
-
-> 🌐 **[Visit the Project Website →](PASTE_GITHUB_PAGES_LINK_HERE)**
 
 ---
 
 ## 📂 Repository Structure
 
 ```
-Presence-Insights-HR-Analytics/
-├── README.md                  # Project documentation
-├── LICENSE                    # MIT License
-├── .gitignore                 # Ignored files for Power BI projects
-├── dax-measures.md            # All DAX formulas with explanations
-├── project-overview.md        # Detailed project walkthrough
-├── assets/
-│   ├── dashboard-main.png     # Full dashboard screenshot
-│   ├── dashboard-kpis.png     # KPI cards close-up
-│   ├── power-query-preview.png# Power Query transformation view
-│   └── hero-banner.png        # Project banner image
-└── docs/
-    ├── index.html             # GitHub Pages website
-    ├── style.css              # Website styles
-    └── script.js              # Website interactions
+HR-Analytics-Dashboard/
+│
+├── README.md                        # Project overview and documentation
+├── project-overview.md              # Short portfolio-style project summary
+├── dax-measures.md                  # DAX formulas with explanations
+├── HR Analytics Dashboard.pbix      # Power BI project file
+├── LICENSE                          # MIT License
+├── .gitignore                       # Git exclusions
+│
+└── images/
+    └── dashboard-preview.png        # Dashboard screenshot (add your own)
 ```
+
+> **Note:** The source dataset is embedded within the `.pbix` file. No separate data file is needed.
 
 ---
 
-## 🚀 How to Use
+## 🚀 How to View This Project
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/smilemangla0310/Presence-Insights-HR-Analytics.git
+   git clone https://github.com/smilemangla0310/HR-Analytics-Dashboard.git
    ```
-2. **Open the `.pbix` file** in Power BI Desktop (if included)
-3. **Explore the dashboard** — use slicers to filter by month
-4. **Review DAX measures** in [dax-measures.md](dax-measures.md)
-5. **Visit the live site** at [Project Website](PASTE_GITHUB_PAGES_LINK_HERE)
+2. Open `HR Analytics Dashboard.pbix` in **Power BI Desktop** (free from Microsoft)
+3. Use the **month slicers** to filter data by April, May, or June 2022
+4. Click on any employee name in the matrix to drill down into individual records
+5. Review the DAX logic in [dax-measures.md](dax-measures.md)
 
 ---
 
@@ -190,12 +165,12 @@ Presence-Insights-HR-Analytics/
 **Smile Mangla**
 
 - GitHub: [@smilemangla0310](https://github.com/smilemangla0310)
-- Project Link: [Presence-Insights-HR-Analytics](https://github.com/smilemangla0310/Presence-Insights-HR-Analytics)
+- Project: [HR-Analytics-Dashboard](https://github.com/smilemangla0310/HR-Analytics-Dashboard)
 
 ---
 
 <div align="center">
 
-⭐ If you found this project useful, please consider giving it a star!
+⭐ If you found this project useful, consider giving it a star!
 
 </div>
