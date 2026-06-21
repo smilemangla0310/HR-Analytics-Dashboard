@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presence Insights | HR Attendance Analytics Dashboard</title>
+    <meta name="description" content="An interactive Power BI dashboard analyzing employee presence, WFH patterns, and sick leave trends. Built with Power BI, DAX, and Power Query.">
+    <meta name="keywords" content="HR Analytics, Power BI, Dashboard, Attendance, DAX, Data Analytics, Portfolio">
+    <meta name="author" content="Smile Mangla">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ============================================ -->
+    <!-- HERO SECTION -->
+    <!-- ============================================ -->
+    <header class="hero" id="hero">
+        <div class="container">
+            <div class="hero-badge">Power BI Portfolio Project</div>
+            <h1 class="hero-title">Presence Insights</h1>
+            <p class="hero-subtitle">HR Attendance Analytics Dashboard — tracking employee presence, work-from-home patterns, and sick leave trends across April–June 2022.</p>
+            <div class="hero-actions">
+                <!-- TODO: Replace PASTE_POWER_BI_EMBED_LINK_HERE with your Power BI Publish-to-Web link -->
+                <a href="#dashboard" class="btn btn-primary">View Dashboard</a>
+                <a href="https://github.com/smilemangla0310/Presence-Insights-HR-Analytics" class="btn btn-secondary" target="_blank" rel="noopener">GitHub Repo</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================ -->
+    <!-- KPI CARDS SECTION -->
+    <!-- ============================================ -->
+    <section class="kpis" id="kpis">
+        <div class="container">
+            <h2 class="section-title">Key Performance Indicators</h2>
+            <p class="section-desc">Organization-wide attendance metrics across April–June 2022</p>
+            <div class="kpi-grid">
+                <div class="kpi-card kpi-presence">
+                    <div class="kpi-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <polyline points="16 11 18 13 22 9"/>
+                        </svg>
+                    </div>
+                    <div class="kpi-value">91.55%</div>
+                    <div class="kpi-label">Presence %</div>
+                    <div class="kpi-desc">Employees present in office</div>
+                </div>
+                <div class="kpi-card kpi-wfh">
+                    <div class="kpi-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </div>
+                    <div class="kpi-value">11.15%</div>
+                    <div class="kpi-label">WFH %</div>
+                    <div class="kpi-desc">Working from home</div>
+                </div>
+                <div class="kpi-card kpi-sl">
+                    <div class="kpi-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <div class="kpi-value">1.08%</div>
+                    <div class="kpi-label">SL %</div>
+                    <div class="kpi-desc">Sick leave taken</div>
+                </div>
+                <div class="kpi-card kpi-total">
+                    <div class="kpi-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                    </div>
+                    <div class="kpi-value">4,439</div>
+                    <div class="kpi-label">Total Working Days</div>
+                    <div class="kpi-desc">Across all employees</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- DASHBOARD FEATURES SECTION -->
+    <!-- ============================================ -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Dashboard Features</h2>
+            <p class="section-desc">Interactive components designed for HR analytics and decision-making</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3>Month Slicers</h3>
+                    <p>Filter the entire dashboard by April 22, May 22, or June 22 for focused monthly analysis.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Trend Analysis</h3>
+                    <p>Line and area charts tracking Presence %, WFH %, and SL % over time to reveal temporal patterns.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Day-of-Week View</h3>
+                    <p>Summary tables showing attendance patterns by weekday — identify which days see the lowest presence.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Employee Matrix</h3>
+                    <p>Individual employee breakdown with Presence %, WFH %, and SL % columns for accountability.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Detail Drill-Down</h3>
+                    <p>Raw attendance records table showing Name, Attendance Value, and Date for each entry.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>KPI Cards & Gauge</h3>
+                    <p>At-a-glance metric cards for the three key percentages plus a Total Working Days gauge.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- TOOLS & WORKFLOW SECTION -->
+    <!-- ============================================ -->
+    <section class="tools" id="tools">
+        <div class="container">
+            <h2 class="section-title">Tools & Workflow</h2>
+            <p class="section-desc">End-to-end analytics pipeline from raw data to published dashboard</p>
+            <div class="workflow">
+                <div class="workflow-step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Data Collection</h3>
+                        <p>Employee attendance data collected in <strong>Microsoft Excel</strong> with separate sheets for each month.</p>
+                    </div>
+                </div>
+                <div class="workflow-connector"></div>
+                <div class="workflow-step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Data Transformation</h3>
+                        <p>Cleaned, unpivoted, and normalized using <strong>Power Query</strong>. Merged monthly sheets into one table.</p>
+                    </div>
+                </div>
+                <div class="workflow-connector"></div>
+                <div class="workflow-step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Measure Creation</h3>
+                        <p>Built core and percentage measures using <strong>DAX</strong> — Presence %, WFH %, SL %, and Total Working Days.</p>
+                    </div>
+                </div>
+                <div class="workflow-connector"></div>
+                <div class="workflow-step">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>Dashboard Design</h3>
+                        <p>Designed interactive visuals in <strong>Power BI Desktop</strong> — trend charts, KPI cards, slicers, and tables.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- LIVE DASHBOARD EMBED SECTION -->
+    <!-- ============================================ -->
+    <section class="dashboard-section" id="dashboard">
+        <div class="container">
+            <h2 class="section-title">Live Dashboard</h2>
+            <p class="section-desc">Interact with the Power BI report directly below</p>
+            <div class="dashboard-embed">
+                <!--
+                    ===================================================
+                    HOW TO EMBED YOUR POWER BI DASHBOARD:
+                    ===================================================
+                    1. Open Power BI Service (app.powerbi.com)
+                    2. Open your report
+                    3. Click File > Embed report > Publish to web
+                    4. Copy the embed URL (NOT the full iframe tag)
+                       It looks like: https://app.powerbi.com/view?r=XXXX
+                    5. Replace PASTE_POWER_BI_EMBED_LINK_HERE below
+                       with that URL
+                    ===================================================
+                -->
+                <iframe
+                    id="powerbi-embed"
+                    title="Presence Insights - HR Analytics Dashboard"
+                    src="PASTE_POWER_BI_EMBED_LINK_HERE"
+                    frameborder="0"
+                    allowFullScreen="true"
+                    loading="lazy">
+                </iframe>
+                <!-- Fallback message shown when embed link hasn't been set -->
+                <div class="embed-fallback" id="embed-fallback">
+                    <div class="fallback-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <h3>Dashboard Embed Coming Soon</h3>
+                    <p>The live Power BI dashboard will appear here once the embed link is configured.</p>
+                    <p class="fallback-hint">Replace <code>PASTE_POWER_BI_EMBED_LINK_HERE</code> in the HTML to activate.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- KEY INSIGHTS SECTION -->
+    <!-- ============================================ -->
+    <section class="insights" id="insights">
+        <div class="container">
+            <h2 class="section-title">Key Insights</h2>
+            <p class="section-desc">Data-driven findings from the attendance analysis</p>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <div class="insight-number">01</div>
+                    <h3>Strong Workforce Presence</h3>
+                    <p>At 91.55%, the organization maintains healthy in-office attendance across the three-month period.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-number">02</div>
+                    <h3>Moderate Hybrid Adoption</h3>
+                    <p>WFH at 11.15% suggests a balanced hybrid model — remote work is available but not overused.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-number">03</div>
+                    <h3>Minimal Sick Leave</h3>
+                    <p>SL at just 1.08% indicates good employee well-being and low unplanned absences.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-number">04</div>
+                    <h3>Weekday Patterns</h3>
+                    <p>Monday (92.66%) shows strong start-of-week attendance while Friday (90.08%) sees a slight dip.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-number">05</div>
+                    <h3>Employee Consistency</h3>
+                    <p>Most employees maintain above 90% presence, with a few outliers showing higher WFH or SL rates.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-number">06</div>
+                    <h3>Stable Trends</h3>
+                    <p>Trend charts confirm attendance remained consistent across April, May, and June 2022 with no major disruptions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================ -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Presence Insights</h3>
+                    <p>HR Attendance Analytics Dashboard</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Project</h4>
+                    <ul>
+                        <!-- TODO: Replace smilemangla0310 with your GitHub username -->
+                        <li><a href="https://github.com/smilemangla0310/Presence-Insights-HR-Analytics" target="_blank" rel="noopener">GitHub Repository</a></li>
+                        <li><a href="https://github.com/smilemangla0310/Presence-Insights-HR-Analytics/blob/main/dax-measures.md" target="_blank" rel="noopener">DAX Measures</a></li>
+                        <li><a href="https://github.com/smilemangla0310/Presence-Insights-HR-Analytics/blob/main/project-overview.md" target="_blank" rel="noopener">Project Overview</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <ul>
+                        <!-- TODO: Replace smilemangla0310 with your GitHub username -->
+                        <li><a href="https://github.com/smilemangla0310" target="_blank" rel="noopener">GitHub Profile</a></li>
+                        <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Smile Mangla. Built with Power BI, DAX, and a passion for data.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

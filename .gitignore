@@ -1,0 +1,39 @@
+# Power BI
+*.pbix
+*.pbit
+*.pbids
+
+# Excel temporary files
+~$*.xlsx
+~$*.xls
+~$*.csv
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / Editor
+.vscode/
+.idea/
+*.suo
+*.user
+
+# Python (if any scripts)
+__pycache__/
+*.pyc
+.env
+venv/
+
+# Data files (keep raw data private)
+*.xlsx
+*.xls
+*.csv
+data/
+
+# Logs
+*.log
+
+# Temporary
+tmp/
+temp/
