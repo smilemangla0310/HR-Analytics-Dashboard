@@ -15,9 +15,7 @@
 
 ## 📸 Dashboard Preview
 
-> *Replace the placeholder below with your own screenshot. Save your screenshot as `images/dashboard-preview.png`.*
-
-![Dashboard Preview](images/dashboard-preview.png)
+![Dashboard Preview](image.png)
 
 ---
 
@@ -138,9 +136,7 @@ HR-Analytics-Dashboard/
 ├── HR Analytics Dashboard.pbix      # Power BI project file
 ├── LICENSE                          # MIT License
 ├── .gitignore                       # Git exclusions
-│
-└── images/
-    └── dashboard-preview.png        # Dashboard screenshot (add your own)
+└── image.png                        # Dashboard screenshot
 ```
 
 > **Note:** The source dataset is embedded within the `.pbix` file. No separate data file is needed.
